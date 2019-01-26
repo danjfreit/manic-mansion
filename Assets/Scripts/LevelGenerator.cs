@@ -31,6 +31,10 @@ public class LevelGenerator : MonoBehaviour
 	public SpawnInfo PaintInfo;
 
 	public SpawnInfo WeedInfo;
+
+	public float EndGameDistance = 56;
+
+	public GameObject EndGameArt;
 	
 	private List<GameObject> _backgroundList;
 
@@ -49,6 +53,8 @@ public class LevelGenerator : MonoBehaviour
 			_backgroundList.Add(Instantiate(Background, Vector3.right * i * 7.5f, Quaternion.identity));
 		}
 
+		Instantiate(EndGameArt, Vector3.right * 8 * 7.25f, Quaternion.identity);
+
 		var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
 		Random.InitState((int)t.TotalSeconds);
 		SpawnTheThings(WindowInfo, _winowList);
@@ -63,8 +69,12 @@ public class LevelGenerator : MonoBehaviour
 		var x = info.GetXStart;
 		for (var i = 0; i < numWindow; ++i)
 		{
-			thingCollection.Add(Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0), Quaternion.identity));
-			x += info.GetXAddition;
+			if (x < EndGameDistance)
+			{
+				thingCollection.Add(Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0),
+					Quaternion.identity));
+				x += info.GetXAddition;
+			}
 		}
 	}
 }
