@@ -1,18 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UI = UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject ButtonPanel;
+
+    public GameObject CreditsPanel;
+
+    public EventSystem _eventSystem;
+
+    public GameObject CreditsBackButton;
+    public GameObject MainMenuPlayButton;
+
+    public void Play()
     {
+        SceneManager.LoadScene("TheScene");
+    }
+    
+    public void ShowButtons()
+    {
+        ButtonPanel.SetActive(true);
+        CreditsPanel.SetActive(false);
         
+        _eventSystem.SetSelectedGameObject(MainMenuPlayButton);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowCredits()
     {
-        
+        ButtonPanel.SetActive(false);
+        CreditsPanel.SetActive(true);
+
+        _eventSystem.SetSelectedGameObject(CreditsBackButton);
     }
 }
