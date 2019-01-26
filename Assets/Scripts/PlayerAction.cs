@@ -36,6 +36,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (tools.WindowFix > 0)
         {
+            tools.WindowFix--;
             GameObject window = houseObjects.Find(IsFixable<Window>);
             if (window != null)
             {
@@ -48,13 +49,13 @@ public class PlayerAction : MonoBehaviour
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
             badFixObj.AddComponent<SpriteRenderer>().sprite = windowBadSprite;
         }
-        tools.WindowFix--;
     }
 
     public void AttemptWeedFix()
     {
         if (tools.WeedFix > 0)
         {
+            tools.WeedFix--;
             GameObject weed = houseObjects.Find(IsFixable<Weed>);
 
             if (weed != null)
@@ -68,13 +69,13 @@ public class PlayerAction : MonoBehaviour
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
             badFixObj.AddComponent<SpriteRenderer>().sprite = weedBadSprite;
         }
-        tools.WeedFix--;
     }
 
     public void AttemptBaldPatchFix()
     {
         if (tools.BaldPatchFix > 0)
         {
+            tools.BaldPatchFix--;
             GameObject baldPatch = houseObjects.Find(IsFixable<BaldPatch>);
             if (baldPatch != null)
             {
@@ -87,13 +88,13 @@ public class PlayerAction : MonoBehaviour
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
             badFixObj.AddComponent<SpriteRenderer>().sprite = baldPatchBadSprite;
         }
-        tools.BaldPatchFix--;
     }
 
     public void AttemptRaccoonFix()
     {
         if (tools.RaccoonFix > 0)
         {
+            tools.RaccoonFix--;
             GameObject raccoon = houseObjects.Find(IsFixable<Raccoon>);
             if (raccoon != null)
             {
@@ -106,7 +107,6 @@ public class PlayerAction : MonoBehaviour
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
             badFixObj.AddComponent<SpriteRenderer>().sprite = raccoonBadSprite;
         }
-        tools.RaccoonFix--;
     }
 
     public bool IsFixable<T>(GameObject obj) where T : FixableObject
