@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -25,7 +21,6 @@ public class LevelGenerator : MonoBehaviour
 {
 	public GameObject Background;
 
-	// TODO: replace with the interactive objects.
 	public SpawnInfo WindowInfo;
 
 	public SpawnInfo PaintInfo;
@@ -42,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
 	{
 		for (var i = 0; i < 8; ++i)
 		{
-			Instantiate(Background, Vector3.right * i * 7.5f, Quaternion.identity);
+			Instantiate(Background, new Vector3( i * 7.5f, 0, 5), Quaternion.identity);
 		}
 
 		Instantiate(EndGameArt, Vector3.right * 8 * 7.25f, Quaternion.identity);
