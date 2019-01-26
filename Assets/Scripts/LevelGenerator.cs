@@ -15,7 +15,7 @@ public struct SpawnInfo
 	public Vector2 xAdditionRange;
 	public Vector2 yVariance;
 
-	public int GetAmount => Random.Range((int)amountToSpawn.x, (int)amountToSpawn.y);
+	public int GetAmount => Random.Range((int) amountToSpawn.x, (int) amountToSpawn.y);
 	public float GetXStart => Random.Range(xStartRange.x, xStartRange.y);
 	public float GetXAddition => Random.Range(xAdditionRange.x, xAdditionRange.y);
 	public float GetYVariance => Random.Range(yVariance.x, yVariance.y);
@@ -32,47 +32,38 @@ public class LevelGenerator : MonoBehaviour
 
 	public SpawnInfo WeedInfo;
 
+	public SpawnInfo RacoonInfo;
+
 	public float EndGameDistance = 56;
 
 	public GameObject EndGameArt;
-	
-	private List<GameObject> _backgroundList;
-
-	private List<GameObject> _winowList;
-
-	private List<GameObject> _paintList;
-
-	private List<GameObject> _weedsList; // 420 blaze it!
 
 	private void Awake()
 	{
-		_backgroundList = new List<GameObject>(8);
-		
 		for (var i = 0; i < 8; ++i)
 		{
-			_backgroundList.Add(Instantiate(Background, Vector3.right * i * 7.5f, Quaternion.identity));
+			Instantiate(Background, Vector3.right * i * 7.5f, Quaternion.identity);
 		}
 
 		Instantiate(EndGameArt, Vector3.right * 8 * 7.25f, Quaternion.identity);
 
 		var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
-		Random.InitState((int)t.TotalSeconds);
-		SpawnTheThings(WindowInfo, _winowList);
-		SpawnTheThings(PaintInfo, _paintList);
-		SpawnTheThings(WeedInfo, _weedsList);
+		Random.InitState((int) t.TotalSeconds);
+		SpawnTheThings(WindowInfo);
+		SpawnTheThings(PaintInfo);
+		SpawnTheThings(WeedInfo);
+		SpawnTheThings(RacoonInfo);
 	}
 
-	private void SpawnTheThings(SpawnInfo info, List<GameObject> thingCollection)
+	private void SpawnTheThings(SpawnInfo info)
 	{
 		var numWindow = info.GetAmount;
-		thingCollection = new List<GameObject>(numWindow);
 		var x = info.GetXStart;
 		for (var i = 0; i < numWindow; ++i)
 		{
 			if (x < EndGameDistance)
 			{
-				thingCollection.Add(Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0),
-					Quaternion.identity));
+				Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0), Quaternion.identity);
 				x += info.GetXAddition;
 			}
 		}
