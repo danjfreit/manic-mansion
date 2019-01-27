@@ -34,87 +34,54 @@ public class PlayerAction : MonoBehaviour
 
     public void AttemptWindowFix()
     {
-        if (tools.WindowFix > 0)
+        GameObject fixableObj = houseObjects.Find(IsFixable<Window>);
+        if (fixableObj != null)
         {
-            tools.WindowFix--;
-            GameObject window = houseObjects.Find(IsFixable<Window>);
-            if (window != null)
-            {
-                window.GetComponent<FixableObject>().Fix();
-            }
+            if (tools.WindowFix > 0)
+                fixableObj.GetComponent<FixableObject>().Fix();
+            else
+                fixableObj.GetComponent<FixableObject>().BadFix();
         }
-        else
-        {
-            GameObject badFixObj = 
-                Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
-            badFixSprite.sprite = windowBadSprite;
-            badFixSprite.sortingLayerName = "BadFixes";
-        }
+        tools.WindowFix--;
     }
 
     public void AttemptWeedFix()
     {
-        if (tools.WeedFix > 0)
+        GameObject fixableObj = houseObjects.Find(IsFixable<Weed>);
+        if (fixableObj != null)
         {
-            tools.WeedFix--;
-            GameObject weed = houseObjects.Find(IsFixable<Weed>);
-
-            if (weed != null)
-            {
-                weed.GetComponent<FixableObject>().Fix();
-            }
+            if (tools.WeedFix > 0)
+                fixableObj.GetComponent<FixableObject>().Fix();
+            else
+                fixableObj.GetComponent<FixableObject>().BadFix();
         }
-        else
-        {
-            GameObject badFixObj =
-                Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
-            badFixSprite.sprite = weedBadSprite;
-            badFixSprite.sortingLayerName = "BadFixes";
-        }
+        tools.WeedFix--;
     }
 
     public void AttemptBaldPatchFix()
     {
-        if (tools.BaldPatchFix > 0)
+        GameObject fixableObj = houseObjects.Find(IsFixable<BaldPatch>);
+        if (fixableObj != null)
         {
-            tools.BaldPatchFix--;
-            GameObject baldPatch = houseObjects.Find(IsFixable<BaldPatch>);
-            if (baldPatch != null)
-            {
-                baldPatch.GetComponent<FixableObject>().Fix();
-            }
+            if (tools.BaldPatchFix > 0)
+                fixableObj.GetComponent<FixableObject>().Fix();
+            else
+                fixableObj.GetComponent<FixableObject>().BadFix();
         }
-        else
-        {
-            GameObject badFixObj =
-                Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
-            badFixSprite.sprite = baldPatchBadSprite;
-            badFixSprite.sortingLayerName = "BadFixes";
-        }
+        tools.BaldPatchFix--;
     }
 
     public void AttemptRaccoonFix()
     {
-        if (tools.RaccoonFix > 0)
+        GameObject fixableObj = houseObjects.Find(IsFixable<Raccoon>);
+        if (fixableObj != null)
         {
-            tools.RaccoonFix--;
-            GameObject raccoon = houseObjects.Find(IsFixable<Raccoon>);
-            if (raccoon != null)
-            {
-                raccoon.GetComponent<FixableObject>().Fix();
-            }
+            if (tools.RaccoonFix > 0)
+                fixableObj.GetComponent<FixableObject>().Fix();
+            else
+                fixableObj.GetComponent<FixableObject>().BadFix();
         }
-        else
-        {
-            GameObject badFixObj =
-                Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
-            badFixSprite.sprite = raccoonBadSprite;
-            badFixSprite.sortingLayerName = "BadFixes";
-        }
+        tools.RaccoonFix--;
     }
 
     public bool IsFixable<T>(GameObject obj) where T : FixableObject

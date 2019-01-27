@@ -120,3 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixedSprite: {fileID: 21300000, guid: 8e14b18a40820459bbb228ef50d59542, type: 3}
+  badFixedSprite: {fileID: 21300000, guid: 9988e83074dd94fc2bae8f60ab9ee0f3, type: 3}
+  fixedClip: {fileID: 8300000, guid: e8d5fcd56047e4b1c800e3465834be32, type: 3}
+  badFixedClip: {fileID: 8300000, guid: 570daaf24b9be4bea9f28735c04b7583, type: 3}
