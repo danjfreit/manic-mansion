@@ -33,14 +33,25 @@ public class LevelGenerator : MonoBehaviour
 
 	public GameObject EndGameArt;
 
+
+    private float bgWidth;
+    private Transform bgParent;
+    private Transform objParent;
+
 	private void Awake()
 	{
+        bgWidth = Background.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
+
+        bgParent = transform.GetChild(0);
+        objParent = transform.GetChild(1);
+
+
 		for (var i = 0; i < 8; ++i)
 		{
-			Instantiate(Background, new Vector3( i * 7.5f, 0, 5), Quaternion.identity);
+			Instantiate(Background, new Vector3( i * bgWidth, 0, 5), Quaternion.identity, bgParent);
 		}
 
-		Instantiate(EndGameArt, Vector3.right * 8 * 7.25f, Quaternion.identity);
+		Instantiate(EndGameArt, Vector3.right * 8 * bgWidth, Quaternion.identity, objParent);
 
 		var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
 		Random.InitState((int) t.TotalSeconds);
@@ -58,7 +69,7 @@ public class LevelGenerator : MonoBehaviour
 		{
 			if (x < EndGameDistance)
 			{
-				Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0), Quaternion.identity);
+				Instantiate(info.thingToSpawn, new Vector3(x, info.GetYVariance, 0), Quaternion.identity, objParent);
 				x += info.GetXAddition;
 			}
 		}

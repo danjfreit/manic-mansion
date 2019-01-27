@@ -3,7 +3,12 @@ guid: c5286ba71ff7c4e8d894da42d4f54898
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - windowBadSprite: {fileID: 21300000, guid: ed8014bd6701b42d184b90cbb24d03e3, type: 3}
+  - weedBadSprite: {fileID: 21300000, guid: 0c99902d3ee814b1d98daaa5e0f210d1, type: 3}
+  - baldPatchBadSprite: {fileID: 21300000, guid: e8fb2c7ab7f5f42a1a316630879b2486,
+      type: 3}
+  - raccoonBadSprite: {fileID: 21300000, guid: 39974350c202b48099962d01d6c98175, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

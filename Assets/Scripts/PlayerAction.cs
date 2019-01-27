@@ -47,7 +47,9 @@ public class PlayerAction : MonoBehaviour
         {
             GameObject badFixObj = 
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            badFixObj.AddComponent<SpriteRenderer>().sprite = windowBadSprite;
+            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
+            badFixSprite.sprite = windowBadSprite;
+            badFixSprite.sortingLayerName = "BadFixes";
         }
     }
 
@@ -67,7 +69,9 @@ public class PlayerAction : MonoBehaviour
         {
             GameObject badFixObj =
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            badFixObj.AddComponent<SpriteRenderer>().sprite = weedBadSprite;
+            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
+            badFixSprite.sprite = weedBadSprite;
+            badFixSprite.sortingLayerName = "BadFixes";
         }
     }
 
@@ -86,7 +90,9 @@ public class PlayerAction : MonoBehaviour
         {
             GameObject badFixObj =
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            badFixObj.AddComponent<SpriteRenderer>().sprite = baldPatchBadSprite;
+            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
+            badFixSprite.sprite = baldPatchBadSprite;
+            badFixSprite.sortingLayerName = "BadFixes";
         }
     }
 
@@ -105,7 +111,9 @@ public class PlayerAction : MonoBehaviour
         {
             GameObject badFixObj =
                 Instantiate(new GameObject(), transform.position, Quaternion.identity);
-            badFixObj.AddComponent<SpriteRenderer>().sprite = raccoonBadSprite;
+            SpriteRenderer badFixSprite = badFixObj.AddComponent<SpriteRenderer>();
+            badFixSprite.sprite = raccoonBadSprite;
+            badFixSprite.sortingLayerName = "BadFixes";
         }
     }
 

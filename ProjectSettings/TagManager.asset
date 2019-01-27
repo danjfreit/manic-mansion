@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 874480285
+    locked: 0
+  - name: HouseObjects
+    uniqueID: 73045883
+    locked: 0
+  - name: BadFixes
+    uniqueID: 3338810919
+    locked: 0
+  - name: Player
+    uniqueID: 1001999421
+    locked: 0
