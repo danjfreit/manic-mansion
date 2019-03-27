@@ -51,5 +51,7 @@
     "ProjectSettings/": true,
     "temp/": true,
     "Temp/": true
-  }
+},
+"workbench.colorTheme": "eppz!",
+"csharp.referencesCodeLens.enabled": false
 }
