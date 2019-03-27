@@ -1,7 +1,17 @@
 # Patches and the Manic Mansion
+
+### Overview
   This game began as part of the Global Game Jam 2019. This is a polished and slightly reworked version of the game being actively worked on by Daniel Freitas.
   
-  Contributors:
+---
+  
+### Design Goals
+   ##### • Concise Experience
+   
+
+---
+  
+### Contributors:
   
   Daniel Freitas, Game Code
   
