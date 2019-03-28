@@ -1,11 +1,11 @@
 # Patches and the Manic Mansion
 
 ### Overview
-  This game began as part of the Global Game Jam 2019. This is a polished and slightly reworked version of the game being actively worked on by Daniel Freitas.
+  Help Patches fix up this old house! With beginnings in the 2019 Global Game Jam, Patches and the Manic Mansion takes a lighthearted and wholesome approach to the jam's theme of "Home". This repository is a fork of the original game jam repo, and is home to the polished and reworked version of the game (currently a work-in-progress).
   
 ---
   
-### Design Goals
+### Polish and Rework Design Goals
   #### • Focus Experience
   The player should know from the start what their goal is and how to achieve it. This will be achieved through the use of on-screen key instructions and a scoring system (even though the score is ultimately discarded for comedic effect).
 
@@ -17,12 +17,11 @@
   #### • Implement Missing Features
   There were assets made and features planned for the original game which never made it into the final release of the jam version due to time constraints. Some of these were user interfaces, intro and outro music, and restricting player movement to the visible gameplay area.
   
-
 ---
   
 ### Contributors:
   
-  Daniel Freitas, Game Code (https://twitter.com/danjfreit/)
+  Daniel Freitas, Game Code and Post-Game Jam Polishing (https://twitter.com/danjfreit/)
   
   Tyler White, Game Code (https://github.com/krazzei/)
   
