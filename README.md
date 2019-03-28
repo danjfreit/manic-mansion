@@ -22,7 +22,7 @@
   
 ### Contributors:
   
-  Daniel Freitas, Game Code
+  Daniel Freitas, Game Code (https://twitter.com/danjfreit/)
   
   Tyler White, Game Code (https://github.com/krazzei/)
   
