@@ -14,7 +14,7 @@ public class Fixable : MonoBehaviour {
     // TEST CODE, TO BE REMOVED
     private void Update() {
         if (Time.time > 1.5f)
-            Fix(GameTool.BaldPatch);
+            Fix(ToolEnum.BaldPatch);
     }
     // END TEST CODE
 
@@ -26,7 +26,7 @@ public class Fixable : MonoBehaviour {
         observers.Remove(observer);
     }
 
-    public void Fix(GameTool tool) {
+    public void Fix(ToolEnum tool) {
         foreach (FixObserver observer in observers) {
             observer.OnFix(tool);
         }

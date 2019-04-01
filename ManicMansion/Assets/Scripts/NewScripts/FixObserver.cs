@@ -5,17 +5,19 @@ using UnityEngine;
 using Tools;
 
 [RequireComponent(typeof(Fixable))]
-[RequireComponent(typeof(ToolType))]
+[RequireComponent(typeof(ToolComponent))]
 public abstract class FixObserver : MonoBehaviour {
-    protected ToolType toolType;
+    protected ToolComponent toolComp;
+    protected ToolInventory toolInv;
 
     protected void Awake() {
-        toolType = GetComponent<ToolType>();
+        toolComp = GetComponent<ToolComponent>();
+        toolInv = FindObjectOfType<ToolInventory>();
     }
 
     private void Start() {
         GetComponent<Fixable>().AddObserver(this);
     }
 
-    public abstract void OnFix(GameTool tool);
+    public abstract void OnFix(ToolEnum tool);
 }

@@ -7,6 +7,7 @@ using Tools;
 
 public class FixSprite : FixObserver {
     public Sprite fixedSprite;
+    public Sprite badFixedSprite;
 
     private SpriteRenderer spriteRenderer;
 
@@ -15,8 +16,12 @@ public class FixSprite : FixObserver {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public override void OnFix(GameTool tool) {
-        if (tool == toolType.tool)
-            spriteRenderer.sprite = fixedSprite;
+    public override void OnFix(ToolEnum tool) {
+        if (tool == toolComp.tool) {
+            if (toolInv.values[toolComp.tool] > 0)
+                spriteRenderer.sprite = fixedSprite;
+            else
+                spriteRenderer.sprite = badFixedSprite;
+        }
     }
 }

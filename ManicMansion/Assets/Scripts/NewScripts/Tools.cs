@@ -1,7 +1,7 @@
 ﻿namespace Tools {
 
-    public enum GameTool {
-        BaldPatch = 0,
+    public enum ToolEnum {
+        BaldPatch,
         Raccoon,
         Weed,
         Window

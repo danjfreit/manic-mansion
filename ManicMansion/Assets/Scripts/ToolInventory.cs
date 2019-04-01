@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Tools;
+
 public class ToolInventory : MonoBehaviour {
-    [Range(5, 30)]
-    public int WindowCount;
-    [Range(5, 30)]
-    public int WeedCount;
-    [Range(5, 30)]
     public int BaldPatchCount;
-    [Range(5, 30)]
     public int RaccoonCount;
+    public int WeedCount;
+    public int WindowCount;
+
+    public Dictionary<ToolEnum, int> values;
+
+    private void Awake() {
+        values = new Dictionary<ToolEnum, int>() {
+            {ToolEnum.BaldPatch, BaldPatchCount},
+            {ToolEnum.Raccoon, RaccoonCount},
+            {ToolEnum.Weed, WeedCount},
+            {ToolEnum.Window, WindowCount}
+        };
+    }
 }
