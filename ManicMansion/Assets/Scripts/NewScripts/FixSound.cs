@@ -11,7 +11,7 @@ public class FixSound : FixObserver {
 
     private AudioSource audioSource;
 
-    protected new void Awake() {
+    private new void Awake() {
         base.Awake();
         audioSource = FindObjectOfType<AudioSource>();
     }

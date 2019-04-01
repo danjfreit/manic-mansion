@@ -11,7 +11,7 @@ public class FixSprite : FixObserver {
 
     private SpriteRenderer spriteRenderer;
 
-    protected new void Awake() {
+    private new void Awake() {
         base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
