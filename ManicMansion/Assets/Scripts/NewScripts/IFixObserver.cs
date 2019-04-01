@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Tools;
+
 public interface IFixObserver {
-    void OnFix();
+    void OnFix(GameTool tool);
 }

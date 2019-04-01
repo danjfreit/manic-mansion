@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Tools;
+
 [RequireComponent(typeof(Fixable))]
+[RequireComponent(typeof(ToolType))]
 public class FixSprite : MonoBehaviour, IFixObserver {
     public Sprite fixedSprite;
 
+    ToolType toolType;
     SpriteRenderer spriteRenderer;
 
     private void Awake() {
+        toolType = GetComponent<ToolType>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -16,7 +21,8 @@ public class FixSprite : MonoBehaviour, IFixObserver {
         GetComponent<Fixable>().AddObserver(this);
     }
 
-    public void OnFix() {
-        spriteRenderer.sprite = fixedSprite;
+    public void OnFix(GameTool tool) {
+        if (tool == toolType.tool)
+            spriteRenderer.sprite = fixedSprite;
     }
 }

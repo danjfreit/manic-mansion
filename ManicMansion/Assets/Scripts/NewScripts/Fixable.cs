@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+using Tools;
+
 public class Fixable : MonoBehaviour {
     private List<IFixObserver> observers;
 
     private void Awake() {
         observers = new List<IFixObserver>();
     }
-
+    // TEST CODE, TO BE REMOVED
     private void Update() {
         if (Time.time > 1.5f)
-            Fix();
+            Fix(GameTool.BaldPatch);
     }
+    // END TEST CODE
 
     public void AddObserver(IFixObserver observer) {
         observers.Add(observer);
@@ -23,9 +26,11 @@ public class Fixable : MonoBehaviour {
         observers.Remove(observer);
     }
 
-    public void Fix() {
+    public void Fix(GameTool tool) {
         foreach (IFixObserver observer in observers) {
-            observer.OnFix();
+            observer.OnFix(tool);
         }
+
+        this.enabled = false;
     }
 }
