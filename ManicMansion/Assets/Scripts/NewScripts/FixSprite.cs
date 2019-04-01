@@ -4,24 +4,18 @@ using UnityEngine;
 
 using Tools;
 
-[RequireComponent(typeof(Fixable))]
-[RequireComponent(typeof(ToolType))]
-public class FixSprite : MonoBehaviour, IFixObserver {
+
+public class FixSprite : FixObserver {
     public Sprite fixedSprite;
 
-    ToolType toolType;
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
-    private void Awake() {
-        toolType = GetComponent<ToolType>();
+    protected new void Awake() {
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start() {
-        GetComponent<Fixable>().AddObserver(this);
-    }
-
-    public void OnFix(GameTool tool) {
+    public override void OnFix(GameTool tool) {
         if (tool == toolType.tool)
             spriteRenderer.sprite = fixedSprite;
     }

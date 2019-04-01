@@ -6,10 +6,10 @@ using UnityEditor;
 using Tools;
 
 public class Fixable : MonoBehaviour {
-    private List<IFixObserver> observers;
+    private List<FixObserver> observers;
 
     private void Awake() {
-        observers = new List<IFixObserver>();
+        observers = new List<FixObserver>();
     }
     // TEST CODE, TO BE REMOVED
     private void Update() {
@@ -18,16 +18,16 @@ public class Fixable : MonoBehaviour {
     }
     // END TEST CODE
 
-    public void AddObserver(IFixObserver observer) {
+    public void AddObserver(FixObserver observer) {
         observers.Add(observer);
     }
 
-    public void RemoveObserver(IFixObserver observer) {
+    public void RemoveObserver(FixObserver observer) {
         observers.Remove(observer);
     }
 
     public void Fix(GameTool tool) {
-        foreach (IFixObserver observer in observers) {
+        foreach (FixObserver observer in observers) {
             observer.OnFix(tool);
         }
 
